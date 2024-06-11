@@ -28,23 +28,33 @@ Processus de décision markovien (MDP) :
 L'agent peut effectuer une action sur l'environnement et en retour, il reçoit un nouvel état et une récompense.
 
 L'équation de Bellman donne pour les MDP :
-$$ V^\pi(s) = \underbrace{R(s, \pi(s))}_{\text{Récompense immédiate}} + \underbrace{\sum_{s' \in S} T(s,\pi(s),s') \cdot V^\pi(s)}_{\text{Espérance des récompenses futures}} $$
+```math
+V^\pi(s) = \underbrace{R(s, \pi(s))}_{\text{Récompense immédiate}} + \underbrace{\sum_{s' \in S} T(s,\pi(s),s') \cdot V^\pi(s)}_{\text{Espérance des récompenses futures}}
+```
 
 Avec $\pi$ la fonction qui à un état renvoie l'action à effectuer  
 $R$ la fonction de récompense, pour un état et une action elle renvoie la récompense.  
 $T$ la fonction de transition, elle renvoie la probabilité de passer d'un état à un autre en jouant une certaine action.  
 $V^\pi$ est l'espérance des récompenses futures en suivant la politique $\pi$  
 
-On peut définir la fonction de valeur optimale : $$ V^*(s) = \max_\pi V^\pi(s) $$
+On peut définir la fonction de valeur optimale : 
+```math
+V^*(s) = \max_\pi V^\pi(s)
+```
 
 On obtient donc l'équation d'optimalité de Bellman :
-$$ V^*(s) = \max_{a \in A} \left( R(s, a) + \sum_{s' \in S} T(s,a,s') \cdot V^*(s) \right) $$
+```math
+V^*(s) = \max_{a \in A} \left( R(s, a) + \sum_{s' \in S} T(s,a,s') \cdot V^*(s) \right)
+```
 
-Si on introduit l'opérateur $B^*$ on a : $$ [B^*V](s) = \max_{a \in A} \left( R(s, a) + \sum_{s' \in S} T(s,a,s') \cdot V(s) \right) $$
+Si on introduit l'opérateur $`B^{*}`$ on a : 
+```math
+[B^*V](s) = \max_{a \in A} \left( R(s, a) + \sum_{s' \in S} T(s,a,s') \cdot V(s) \right)
+```
 
-L'unique point fixe de $B^*$ est $V^*$
+L'unique point fixe de $`B^*`$ est $`V^*`$.
 
-L'un des algorithmes pour trouver $V^*$ est l'itération de la valeur :  
+L'un des algorithmes pour trouver $`V^{*}`$ est l'itération de la valeur :  
 ```
 iteration de la valeur :
 t <- 0
