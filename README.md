@@ -7,12 +7,12 @@ Joueur artificiel pour Tetris
 **Pour l'algorithme d'itération de la valeur :**  
 - Compilation : `gcc -o iteration_valeur iteration_valeur.c`  
 - Exécution : `./iteration_valeur`  
-À l'exécution, le modèle va d'abord être entraîné puis stocker dans deux fichiers et enfin testé sur 10000 partie de tetris (la moyenne du score sera affichée).
+À l'exécution, le modèle va d'abord être entraîné puis stocké dans deux fichiers et enfin testé sur 10000 parties de tetris (la moyenne du score sera affichée).
 
 **Pour l'algorithme d'entropie croisée :**
 - Compilation : `gcc -o entropi_croisee entropi_croisee.c tetris_heuristique.c -lm`
 - Exécution : `./entropi_croisee`  
-À l'exécution, le programme tourne dans une boucle infinie et s'améliore à chaque itération. Contrôle C pour l'arrêté.  
+À l'exécution, le programme tourne dans une boucle infinie et s'améliore à chaque itération. Contrôle C pour l'arrêter.  
 Les valeurs pour mu et sigma sont affichées à chaque itération.
 
 **Pour tester avec les heuristiques :**
@@ -68,7 +68,7 @@ Jusqu'à convergence de V_t
 Cet algorithme nécessite de stocker un tableau $V$ de taille le nombre d'états.  
 Cette méthode ne fonctionne donc que pour des petites tailles de Tetris, car le nombre d'états est de l'ordre de $2^{\text{le nombre de cases de la grille}}$.
 
-Le fichier `iteration_valeur.c` contient l'algorithme d'itération de la valeur appliqué à un Tetris de taille 4x5.
+Le fichier `iteration_valeur.c` contient l'algorithme d'itération de la valeur, appliqué à un Tetris de taille 4x5.
 
 # Heuristique
 
@@ -78,7 +78,7 @@ Une heuristique est une fonction qui prend en entrée l'état du jeu et renvoie 
 Pour ce faire, on utilise une liste de critères sur la grille de Tetris et on multiplie chaque critère par un poids.
 
 Cette méthode est utilisée par le fichier `tetris_heuristique.c`  
-Il y a 3 heuristiques implémentées celle de Dellacherie, celle de Bertsekas et Ioffe et une heuristique issue de Dellacherie.
+Il y a 3 heuristiques implémentées : celle de Dellacherie, celle de Bertsekas et Ioffe et une heuristique issue de Dellacherie.
 
 # Entropie croisée
 
